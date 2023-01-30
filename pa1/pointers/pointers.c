@@ -19,30 +19,49 @@ int main() {
   printf ("pointer         = %ld\n", (long int) pointer);
 
   printf ("\n\nLESSON 2: DEREFERENCING POINTERS WITH *\n");
+  unsigned int* second_pointer = &number;
+  *second_pointer = 1000;
+  printf ("deref second_pointer = %d\n", *second_pointer);
+
   unsigned int deref_pointer = *pointer;
   printf ("deref_pointer   = %d\n", deref_pointer);
 
   printf ("\n\nLESSON 3: THE INTEGER DATATYPE USES FOUR BYTES\n");
   printf ("sizeof(int)     = %ld bytes\n", sizeof(int));
+  printf ("sizeof(pointer) = %ld\n", sizeof(pointer));
   printf ("pointer         = %ld\n", (long int) pointer);
   // notice how the + operator has an overloaded functionality for pointers
   printf ("pointer+1       = %ld\n", (long int) (pointer+1));
 
+
   printf ("\n\nLESSON 4: PRINTING EACH BYTE OF AN INTEGER\n");
-  // 500 = 256 + 244
-  // 500 = 256 + 128 + 64 + 32 + 16 + 4
-  // 500 = 0b1_11110100
+  // 1000 = 
+  // 1000 = 
+  // 1000 = 
   unsigned char* char_pointer = (unsigned char*) pointer;
   printf ("byte at %ld = %d\n", (long int) (char_pointer+0), *(char_pointer+0));
   printf ("byte at %ld = %d\n", (long int) (char_pointer+1), *(char_pointer+1));
   printf ("byte at %ld = %d\n", (long int) (char_pointer+2), *(char_pointer+2));
   printf ("byte at %ld = %d\n", (long int) (char_pointer+3), *(char_pointer+3));
 
+  unsigned int first_int = 100;
+  unsigned int second_int = 200;
+  unsigned int third_int = 300;
+  unsigned int fourth_int = 300;
+  unsigned long int long_int = 10000;
+  printf("&first_int=%ld\n", (long int) &first_int);
+  printf("&second_int=%ld\n", (long int)  &second_int);
+  printf("&third_int=%ld\n", (long int) &third_int);
+  printf("&long_int=%ld\n", (long int) &long_int);
+
+
   printf ("\n\nLESSON 5: POINTERS ARE JUST VARIABLES THAT LIVE IN MEMORY TOO\n");
   unsigned int** pointer_to_pointer = &pointer;
   printf ("  pointer_to_pointer = %ld\n", (long int) pointer_to_pointer);
   printf (" *pointer_to_pointer = %ld\n", (long int) *pointer_to_pointer);
   printf ("**pointer_to_pointer = %d\n", **pointer_to_pointer);
+
+  exit(EXIT_SUCCESS);
 
   printf ("\n\nLESSON 6: ARRAYS\n");
   int array_size = 3;
