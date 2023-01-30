@@ -60,7 +60,7 @@ def test_editDistance ( filenum, path="./", verbose=False ):
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             encoding="ASCII",
-            timeout=datetime.timedelta(seconds=1).total_seconds(),
+            timeout=datetime.timedelta(seconds=3).total_seconds(),
         )
 
         resultString = result.stdout.strip()
@@ -73,6 +73,9 @@ def test_editDistance ( filenum, path="./", verbose=False ):
             # print (result.stdout)
         assert resultString == answerString, "The program output does not output the correct Levenshtein distance.".format(filenum)
         return True
+    except subprocess.TimeoutExpired as e:
+        print (e.output)
+        print ("Calling ./editDistance with the previous test case timed out. A more efficient algorithm implementation is needed.")
     except subprocess.CalledProcessError as e:
         print (e.output)
         print ("Calling ./editDistance returned an error.")
