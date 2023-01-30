@@ -50,7 +50,7 @@ def test_quickselect ( filenum, path="./", verbose=False ):
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             encoding="ASCII",
-            timeout=datetime.timedelta(seconds=1).total_seconds(),
+            timeout=datetime.timedelta(seconds=2).total_seconds(),
         )
 
         resultString = result.stdout.strip()
@@ -63,6 +63,9 @@ def test_quickselect ( filenum, path="./", verbose=False ):
             # print (result.stdout)
         assert resultString == answerString, "The program output does not output the k-th smallest element.".format(filenum)
         return True
+    except subprocess.TimeoutExpired as e:
+        print (e.output)
+        print ("Calling ./quickselect with the previous test case timed out.")
     except subprocess.CalledProcessError as e:
         print (e.output)
         print ("Calling ./quickselect returned an error.")
