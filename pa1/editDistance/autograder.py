@@ -7,6 +7,9 @@ import subprocess
 import sys
 from Levenshtein import distance
 
+def is_ascii(s):
+    return all(ord(c) < 128 for c in s)
+
 def generate_test ( filenum, min_word_length=4, max_distance=1, path="./" ):
 
     word_file = "/usr/share/dict/words"
@@ -16,9 +19,9 @@ def generate_test ( filenum, min_word_length=4, max_distance=1, path="./" ):
     while max_distance<calculated_distance:
         word0 = ""
         word1 = ""
-        while len(word0)<min_word_length:
+        while not is_ascii(word0) or len(word0)<min_word_length:
             word0 = random.choice(words)
-        while len(word1)<min_word_length:
+        while not is_ascii(word1) or len(word1)<min_word_length:
             word1 = random.choice(words)
         calculated_distance = distance(word0, word1)
 
