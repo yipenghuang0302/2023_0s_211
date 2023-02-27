@@ -121,4 +121,4 @@ def grade_binSub( path='./', verbose=False ):
 if __name__ == '__main__':
     # generate_test_suite()
     grade_binSub(verbose=True)
-    exit(
+    exit()
