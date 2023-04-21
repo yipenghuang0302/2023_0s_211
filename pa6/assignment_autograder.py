@@ -6,7 +6,7 @@ from sevenSegmentDisplayE import autograder as sevenSegmentDisplayE_autograder
 from sevenSegmentDisplayC import autograder as sevenSegmentDisplayC_autograder
 from sevenSegmentDisplay import autograder as sevenSegmentDisplay_autograder
 from fullyAssociative import autograder as fullyAssociative_autograder
-from directMapped import autograder as directMapped_autograder
+from setAssociative import autograder as setAssociative_autograder
 from binSub import autograder as binSub_autograder
 
 total = 0
@@ -42,7 +42,7 @@ if len( sys.argv ) > 1:
     total += sevenSegmentDisplayC_autograder.grade_sevenSegmentDisplayC ( path="tar_test/sevenSegmentDisplayC/", verbose=False )
     total += sevenSegmentDisplay_autograder.grade_sevenSegmentDisplay ( path="tar_test/sevenSegmentDisplay/", verbose=False )
     total += fullyAssociative_autograder.grade_fullyAssociative ( path="tar_test/fullyAssociative/", verbose=False )
-    total += directMapped_autograder.grade_directMapped ( path="tar_test/directMapped/", verbose=False )
+    total += setAssociative_autograder.grade_setAssociative ( path="tar_test/setAssociative/", verbose=False )
     total += binSub_autograder.grade_binSub ( path="tar_test/binSub/", verbose=False )
 
     shutil.rmtree("tar_test")
@@ -54,7 +54,7 @@ else:
     total += sevenSegmentDisplayC_autograder.grade_sevenSegmentDisplayC ( path="sevenSegmentDisplayC/", verbose=False )
     total += sevenSegmentDisplay_autograder.grade_sevenSegmentDisplay ( path="sevenSegmentDisplay/", verbose=False )
     total += fullyAssociative_autograder.grade_fullyAssociative ( path="fullyAssociative/", verbose=False )
-    total += directMapped_autograder.grade_directMapped ( path="directMapped/", verbose=False )
+    total += setAssociative_autograder.grade_setAssociative ( path="setAssociative/", verbose=False )
     total += binSub_autograder.grade_binSub ( path="binSub/", verbose=False )
 
 print ("Score on assignment: {} out of 150.".format(total))
